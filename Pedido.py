@@ -1,36 +1,40 @@
 class Pedido:
-    #não defini os atributos
+    #não define os atributos
     status="Recebido"
-        #metodo construtor - instanciar recebe o valor do objeto
-    def __init__(self, numero, data, hora, cliente, items, pagamento):
-        #selft é chamar os atributos;
-        self .numero=numero#private - não pode ser acessado nem alterado fora daqui
-        self .data=data#publico - pode acessado e alterado por outras classes
-        self .hora=hora
-        self .cliente=cliente
-        self .items=items
-        self .pagamento=pagamento
-       #metodo - Ação
-    def atualizar_Pedido(self, status):
-        self .items=status
+    
+    #método construtor - instanciar recebe os valor do objeto
+    def __init__(self, num, data, hora, cliente, itens, pag):
+       #selft é chamar os atributos;
+       self.__num=num#private - não ser acessado nem alterado por outras classes
+       self.data=data#publico - pode acessado e alterado por outras classes
+       self.hora=hora
+       self.cliente=cliente
+       self.__itens=itens
+       self.pagamento=pag
+
+    #método - ação 
+    def atualizar_pedido(self, novoStatus):
+        self.status=novoStatus
 
     def imprimir(self):
-        print(f"\n-------- Pedido nº {self.numero} ------"
-              f"\n|Data: {self.data} - Horarios: {self.hora} |"
-              f"\n|cliente: {self.cliente} "
-              f"\n|Item: {self.items} |"
-              f"\n|Pagamento: {self.pagamento} ")
+        print(f"\n------------- Pedido nº {self.__num} --------------"
+              f"\nData: {self.data} -  Horário: {self.hora} "
+              f"\nCliente: {self.cliente.nome}"
+              f"\nEndereço: {self.cliente.endereco}"
+              f"\nItens do Pedido: {self.__itens}"
+              f"\nStatus: {self.status} -  Pagamento: {self.pagamento}"
+              f"\n----------------------------------------------"
+              )
 
-        #encapsulamento
-        def setNum(self, numero):#setando-alterando indiretamente pois num e private
-            self.__numero=numero
+    #encapsulamento - METODOS QUE INTERMEDIAM O ACESSO OU A ALTEÇÃO 
+    def setNum(self, numero): #setando-alterando indireamente pois num é private
+        self.__num=numero
 
-        def getNum(self): #acessar a informação variavel private
-            return self.__numero
+    def getNum(self): #acesar a finformação de variavel private
+        return self.__num
 
-        def setItem(self, items): #controla as informações
-            self.__itens.append(items)
-
+    def setIten(self, item): #controla as informações
+        self.__itens.append(item)
 
                       
     

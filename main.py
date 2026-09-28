@@ -1,5 +1,8 @@
+
 from Pedido import Pedido
 from Cliente import cliente 
+from Produto import Produto
+from Itempedido import ItemPedido
 
 #criar um objeto - representar um elemento - dar valores
 #novoPedido = Pedido(1, "14/09/2025", "21:10", "Iara", ["X-Salada", "X-Bacon"], "pix")
@@ -33,3 +36,15 @@ novoCliente.imprimeFicha()
 
 novoPedido = Pedido(1, "14/09/2025", "21:10", novoCliente, ["X-Salada", "X-Bacon"], "pix")
 novoPedido.imprimir()
+
+#crie produto
+xbacon = Produto(cod="p01", desc="X-Bacon", categoria="Lanche", preco=25.00)
+xbacon.imprimeProduto()
+
+#pedido
+print("\n--------Itens do pedido:--------")
+print(xbacon.preco)
+print(xbacon.descricao)
+
+#criar um item pedido
+xbacon_item = ItemPedido(produto=xbacon, obs="Sem cebola", quantidade=2, desconto=0.10)

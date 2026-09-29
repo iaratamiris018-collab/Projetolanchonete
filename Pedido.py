@@ -9,25 +9,32 @@ class Pedido:
        self.data=data#publico - pode acessado e alterado por outras classes
        self.hora=hora
        self.cliente=cliente
-       self.__itens=itens
+       self.itens=itens
        self.pagamento=pag
 
     #método - ação 
     def atualizar_pedido(self, novoStatus):
         self.status=novoStatus
 
-    def imprimir(self):
+    def imprimePedido(self):
         print(f"\n------------- Pedido nº {self.__num} --------------"
               f"\nData: {self.data} -  Horário: {self.hora} "
               f"\nCliente: {self.cliente.nome}"
               f"\nEndereço: {self.cliente.endereco}"
-              f"\nItens do Pedido: {self.__itens}"
+              f"\nItens do Pedido: {self.itens}"
               f"\nStatus: {self.status} -  Pagamento: {self.pagamento}"
               f"\n----------------------------------------------"
               )
+    
+        for item in self.itens:
+            print(f"\nProduto: {item.produto.descricao}"
+                  f"\nQuantidade: {item.quantidade} - Valor: R$ {item.produto.preco}"
+                  f"\nTotal do item: R$ {item.totalitem()}"
+                  f"\n----------------------------------------------"
+                  )
 
     #encapsulamento - METODOS QUE INTERMEDIAM O ACESSO OU A ALTEÇÃO 
-    def setNum(self, numero): #setando-alterando indireamente pois num é private
+    def setNum(self, numero): #setando-alterando indiremente pois num é private
         self.__num=numero
 
     def getNum(self): #acesar a finformação de variavel private

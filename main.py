@@ -1,50 +1,29 @@
-
+import os
 from Pedido import Pedido
 from Cliente import cliente 
 from Produto import Produto
 from Itempedido import ItemPedido
+from Itempedido import ItemPedido
 
-#criar um objeto - representar um elemento - dar valores
-#novoPedido = Pedido(1, "14/09/2025", "21:10", "Iara", ["X-Salada", "X-Bacon"], "pix")
+os.system("cls")
 
-### O que eu posso fazer com o objeto?###
-#acessar um atributo
-#print(novoPedido.numero)
-#print(novoPedido.status)
-#alterar dados de um atributo
-#novoPedido.cliente="Iara Tamires Mendoza"
-#print(novoPedido.cliente)
+#Cdastrar cliente
+novoCli = cliente(nome="João Paulo",cpf="123.456.789-00",
+                  email="joao@gmail.com", endereco="Rua das Flores, 123", tel="(11) 99999-9999", nascimento="15/06/1990")
 
-#novoPedido.imprimir()
-#novoPedido.atualizar_Pedido("Em preparação")
+#Cadastrar produto
+siri = Produto(cod=1, desc="Siri", categoria="Lanche", preco=25.00)
+refri = Produto(cod=2, desc="Tubaina", categoria="Bebida", preco=6.00)
 
-#acessar o id - private
-#novoPedido:__num2
-#print(novoPedido:__num)#acessar
-#novoPedido.imprimir()
-#print(novoPedido.getNum())
-#novoPedido.setNum(2)
-#print(novoPedido.getNum())
+novoCli.imprimeFicha()
+siri.imprimeProduto()
+refri.imprimeProduto()
 
-#novoPedido.setItem("X-Calabresa")
-#novoPedido.imprimir()
+#Pedidos
+item1 = ItemPedido(produto=siri, obs="Sem picles", quantidade=2, desconto=5.00)
+item2= ItemPedido(produto=refri, obs="Gelo", quantidade=3, desconto=0.00)
 
-#especificando os atributos
-novoCliente = cliente(endereco="Rua Vital Brasil", email="joao@gmail.com",
-                      cpf="033888665598", nome="João Desenvolvedor", tel="679988-6677", nascimento="15/06/1990")
-novoCliente.imprimeFicha()
+itens = [item1, item2]
 
-novoPedido = Pedido(1, "14/09/2025", "21:10", novoCliente, ["X-Salada", "X-Bacon"], "pix")
-novoPedido.imprimir()
-
-#crie produto
-xbacon = Produto(cod="p01", desc="X-Bacon", categoria="Lanche", preco=25.00)
-xbacon.imprimeProduto()
-
-#pedido
-print("\n--------Itens do pedido:--------")
-print(xbacon.preco)
-print(xbacon.descricao)
-
-#criar um item pedido
-xbacon_item = ItemPedido(produto=xbacon, obs="Sem cebola", quantidade=2, desconto=0.10)
+pedido=Pedido(num=1, data="01/01/2024", hora="12:00", cliente=novoCli, itens=itens, pag="Cartão")
+pedido.imprimePedido()

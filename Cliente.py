@@ -16,9 +16,11 @@ class cliente:
         self.__telefone=tel
 
     def imprimeFicha(self):
-        print(f"\n|Nome Completo: {self.nome}"
+        print("--------- Ficha do Cliente ---------"
+              f"\n|Nome Completo: {self.nome}"
               f"\n|cpf: {self.cpf}"
               f"\n|email: {self.email}"
               f"\n|Data de nascimento: {self.nascimento}"
               f"\n|Endereço: {self.endereco}"
-              f"\n|Telefone: {self.tel}")
+              f"\n|Telefone: {self.tel}"
+              f"\n------------------------------------")
